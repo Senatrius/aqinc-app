@@ -5,7 +5,6 @@ export const DataValue = ({
   value: number;
   label: string;
 }) => {
-  console.log(value);
   return (
     <div>
       <p className='text-2xl leading-none'>{value || 'N/A'}</p>

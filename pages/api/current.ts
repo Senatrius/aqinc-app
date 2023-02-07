@@ -64,7 +64,6 @@ export default async function handler(
       `http://api.waqi.info/feed/here/?token=${process.env.AQICN_TOKEN}`
     );
     const result = await response.json();
-    console.log(result);
 
     res.status(200).json(result);
   } catch (err: any) {
