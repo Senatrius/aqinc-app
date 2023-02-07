@@ -1,4 +1,6 @@
-export const Location = () => {
+export const Location = ({ location }: { location: string }) => {
+  const [city, country] = location.split(',');
+
   return (
     <div className='flex items-center gap-6'>
       <svg
@@ -14,10 +16,8 @@ export const Location = () => {
         />
       </svg>
       <div>
-        <p className='text-[1.75rem] leading-none'>Country</p>
-        <p className='text-xl leading-snug text-subtext'>
-          Vilniaus apskritis, zirmunai, vytauto g. 20
-        </p>
+        <p className='text-[1.75rem] leading-none'>{country}</p>
+        <p className='text-xl leading-snug text-subtext'>{city}</p>
       </div>
     </div>
   );
