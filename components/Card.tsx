@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { AQI } from './AQI';
 import { Credit } from './Credit';
 import { Date } from './Date';
 import { Location } from './Location';
@@ -13,6 +14,7 @@ export const Card = () => {
         <Location />
         <Date />
       </div>
+      <AQI />
     </div>
   );
 };
