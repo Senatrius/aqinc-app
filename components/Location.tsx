@@ -1,6 +1,6 @@
 export const Location = () => {
   return (
-    <div className='flex items-center gap-8'>
+    <div className='flex items-center gap-6'>
       <svg
         className='hidden sm:inline'
         width='24'
@@ -15,7 +15,7 @@ export const Location = () => {
       </svg>
       <div>
         <p className='text-[1.75rem] leading-none'>Country</p>
-        <p className='text-xl text-subtext'>
+        <p className='text-xl leading-snug text-subtext'>
           Vilniaus apskritis, zirmunai, vytauto g. 20
         </p>
       </div>

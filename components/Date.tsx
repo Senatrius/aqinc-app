@@ -5,7 +5,7 @@ export const Date = () => {
         00:00
         <span className='text-xl'>PM</span>
       </p>
-      <p className='text-lg text-subtext'>15th October, Monday</p>
+      <p className='text-lg leading-snug text-subtext'>15th October, Monday</p>
     </div>
   );
 };
