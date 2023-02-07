@@ -12,40 +12,40 @@ module.exports = {
   plugins: [
     createThemes({
       good: {
-        cardStart: 'hsla(198, 58%, 69%, .125)',
-        cardEnd: 'hsla(198, 58%, 69%, .25)',
+        cardStart: 'hsla(198, 58%, 49%, .125)',
+        cardEnd: 'hsla(198, 58%, 49%, .25)',
         cardBorder: 'hsla(227, 35%, 80%, .25)',
         inputBorder: 'hsla(227, 35%, 80%, .75)',
         input: 'hsla(227, 35%, 80%, .15)',
         text: 'white',
-        subtext: 'hsla(227, 75%, 80%, 1)'
+        subtext: 'hsla(247, 100%, 95%, 1)'
       },
       moderate: {
-        cardStart: 'hsla(176, 60%, 88%, .125)',
-        cardEnd: 'hsla(176, 60%, 88%, .25)',
+        cardStart: 'hsla(176, 60%, 75%, .125)',
+        cardEnd: 'hsla(176, 60%, 75%, .25)',
         cardBorder: 'hsla(198, 55%, 95%, .25)',
         inputBorder: 'hsla(198, 55%, 95%, .75)',
         input: 'hsla(198, 55%, 95%, .15)',
         text: 'white',
-        subtext: 'hsla(198, 75%, 80%, 1)'
+        subtext: 'hsla(198, 80%, 95%, 1)'
       },
       someUnhealthy: {
-        cardStart: 'hsla(158, 50%, 80%, .125)',
-        cardEnd: 'hsla(158, 50%, 80%, .25)',
+        cardStart: 'hsla(158, 50%, 68%, .125)',
+        cardEnd: 'hsla(158, 50%, 68%, .25)',
         cardBorder: 'hsla(184, 32%, 92%, .25)',
         inputBorder: 'hsla(184, 32%, 92%, .75)',
         input: 'hsla(184, 32%, 92%, .15)',
         text: 'white',
-        subtext: 'hsla(184, 75%, 80%, 1)'
+        subtext: 'hsla(154, 82%, 87%, 1)'
       },
       unhealthy: {
-        cardStart: 'hsla(83, 60%, 82%, .125)',
-        cardEnd: 'hsla(83, 60%, 82%, .25)',
+        cardStart: 'hsla(83, 60%, 72%, .125)',
+        cardEnd: 'hsla(83, 60%, 72%, .25)',
         cardBorder: 'hsla(58, 77%, 90%, .25)',
         inputBorder: 'hsla(58, 77%, 90%, .75)',
         input: 'hsla(58, 77%, 90%, .15)',
         text: 'white',
-        subtext: 'hsla(58, 75%, 80%, 1)'
+        subtext: 'hsla(60, 80%, 85%, 1)'
       },
       veryUnhealthy: {
         cardStart: 'hsla(68, 52%, 86%, .125)',
@@ -54,7 +54,7 @@ module.exports = {
         inputBorder: 'hsla(43, 79%, 93%, .75)',
         input: 'hsla(43, 79%, 93%, .15)',
         text: 'white',
-        subtext: 'hsla(43, 75%, 80%, 1)'
+        subtext: 'hsla(65, 55%, 80%, 1)'
       },
       hazardous: {
         cardStart: 'hsla(42, 69%, 66%, .125)',
@@ -63,7 +63,7 @@ module.exports = {
         inputBorder: 'hsla(10, 87%, 75%, .75)',
         input: 'hsla(10, 87%, 75%, .15)',
         text: 'white',
-        subtext: 'hsla(10, 75%, 80%, 1)'
+        subtext: 'hsla(15, 85%, 80%, 1)'
       }
     })
   ]
