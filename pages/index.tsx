@@ -1,9 +1,34 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { Josefin_Sans } from '@next/font/google';
-import styles from '@/styles/Home.module.css';
+import { Card } from '@/components/Card';
+import { useState } from 'react';
 
 export default function Home() {
+  const [condition, setCondition] = useState<string>('veryUnhealthy');
+
+  let background = './images/good.jpeg';
+
+  switch (condition) {
+    case 'good':
+      background = './images/good.jpeg';
+      break;
+    case 'moderate':
+      background = './images/moderate.jpeg';
+      break;
+    case 'someUnhealthy':
+      background = './images/unhealthy-1.jpeg';
+      break;
+    case 'unhealthy':
+      background = './images/unhealthy-2.jpeg';
+      break;
+    case 'veryUnhealthy':
+      background = './images/unhealthy-3.jpeg';
+      break;
+    case 'hazardous':
+      background = './images/hazardous.jpeg';
+      break;
+  }
+
   return (
     <>
       <Head>
@@ -22,11 +47,12 @@ export default function Home() {
         />
       </Head>
       <main
+        data-theme={condition}
         style={{
-          background: "url('./images/good.jpeg') no-repeat center/cover"
+          background: `url(${background}) no-repeat center/cover`
         }}
-        className='relative grid w-full place-items-center'>
-        <div className='w-[94%] max-w-[80rem] rounded-lg py-5 px-7 backdrop-blur-md md:w-[89%]'></div>
+        className='relative grid w-full place-items-center text-text'>
+        <Card />
       </main>
     </>
   );
