@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  html, body, #__next, #__next > main {
+  html, body, #__next {
     height: 100%
+  }
+  
+  #__next>main {
+    min-height: 100%;
   }
 }
