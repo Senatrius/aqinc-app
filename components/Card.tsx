@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { AQI } from './AQI';
 import { Credit } from './Credit';
+import { Data } from './Data';
 import { Date } from './Date';
 import { Location } from './Location';
 import { SearchInput } from './SearchInput';
@@ -14,7 +15,10 @@ export const Card = () => {
         <Location />
         <Date />
       </div>
-      <AQI />
+      <div className='mt-10 flex flex-col items-start justify-between gap-4 sm:flex-row md:mt-16'>
+        <AQI />
+        <Data />
+      </div>
     </div>
   );
 };
