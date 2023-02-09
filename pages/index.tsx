@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Josefin_Sans } from '@next/font/google';
 import { Card } from '@/components/Card';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { IData } from './api/current';
 
 const getCondition = ({ aqi }: { aqi: number }) => {
@@ -33,8 +33,11 @@ const getCondition = ({ aqi }: { aqi: number }) => {
 };
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [condition, setCondition] = useState<string>('good');
   const [aqiData, setAqiData] = useState<IData | null>(null);
+
+  const interval = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     (async () => {
@@ -45,6 +48,17 @@ export default function Home() {
       setAqiData(data);
     })();
   }, []);
+
+  const onChange = (e: ChangeEvent) => {
+    setSearchQuery((e.target as HTMLInputElement).value);
+  };
+
+  const onKeyUp = () => {
+    clearInterval(interval.current);
+    interval.current = setTimeout(async () => {
+      console.log('test');
+    }, 2000);
+  };
 
   let background = './images/good.jpeg';
   let aqiDescription = 'good';
@@ -103,6 +117,9 @@ export default function Home() {
           <Card
             aqiDescription={aqiDescription}
             data={aqiData}
+            onChange={onChange}
+            searchQuery={searchQuery}
+            onKeyUp={onKeyUp}
           />
         )}
       </main>
