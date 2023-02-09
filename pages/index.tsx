@@ -4,38 +4,29 @@ import { Card } from '@/components/Card';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { IData } from './api/current';
 
-const getCondition = ({ aqi }: { aqi: number }) => {
+const getCondition = (aqi: number) => {
   if (0 <= aqi && aqi <= 50) {
     return 'good';
-  }
-
-  if (50 < aqi && aqi <= 100) {
+  } else if (50 < aqi && aqi <= 100) {
     return 'moderate';
-  }
-
-  if (100 < aqi && aqi <= 150) {
+  } else if (100 < aqi && aqi <= 150) {
     return 'someUnhealthy';
-  }
-
-  if (150 < aqi && aqi <= 200) {
+  } else if (150 < aqi && aqi <= 200) {
     return 'unhealthy';
-  }
-
-  if (200 < aqi && aqi <= 300) {
+  } else if (200 < aqi && aqi <= 300) {
     return 'veryUnhealthy';
-  }
-
-  if (300 < aqi && aqi < 51) {
+  } else if (300 < aqi) {
     return 'hazardous';
+  } else {
+    return 'good';
   }
-
-  return 'good';
 };
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [condition, setCondition] = useState<string>('good');
   const [aqiData, setAqiData] = useState<IData | null>(null);
+  const [suggestions, setSuggestions] = useState<any>({});
 
   const interval = useRef<ReturnType<typeof setTimeout>>();
 
@@ -44,19 +35,33 @@ export default function Home() {
       const response = await fetch('api/current');
       const data = await response.json();
 
-      setCondition(getCondition(data.data.aqi));
       setAqiData(data);
     })();
   }, []);
+
+  useEffect(() => {
+    aqiData && setCondition(getCondition(aqiData.data.aqi));
+  }, [aqiData]);
 
   const onChange = (e: ChangeEvent) => {
     setSearchQuery((e.target as HTMLInputElement).value);
   };
 
+  const search = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const response = await fetch(`api/@${e.target.dataset.id}`);
+    const data = await response.json();
+
+    setAqiData(data);
+  };
+
   const onKeyUp = () => {
     clearInterval(interval.current);
     interval.current = setTimeout(async () => {
-      console.log('test');
+      const response = await fetch(`api/search/${searchQuery}`);
+      const data = await response.json();
+
+      console.log(data);
+      setSuggestions(data);
     }, 2000);
   };
 
@@ -120,6 +125,8 @@ export default function Home() {
             onChange={onChange}
             searchQuery={searchQuery}
             onKeyUp={onKeyUp}
+            suggestions={suggestions}
+            onClick={search}
           />
         )}
       </main>
