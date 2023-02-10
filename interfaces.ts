@@ -27,6 +27,12 @@ export interface IDaily {
   min: number;
 }
 
+export interface IForecast {
+  daily: {
+    [key: string]: IDaily[];
+  };
+}
+
 export interface IData {
   status: string;
   data: {
@@ -60,14 +66,7 @@ export interface IData {
       v: number;
       iso: string;
     };
-    forecast: {
-      daily: {
-        o3: IDaily[];
-        pm10: IDaily[];
-        pm25: IDaily[];
-        uvi: IDaily[];
-      };
-    };
+    forecast: IForecast;
     debug: {
       sync: '2023-02-08T04:07:24+09:00';
     };
