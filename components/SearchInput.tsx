@@ -5,7 +5,7 @@ export const SearchInput = ({
   searchQuery,
   onKeyUp,
   suggestions,
-  onClick,
+  search,
   isSuggestionOpen,
   setIsSuggestionOpen
 }: {
@@ -13,7 +13,7 @@ export const SearchInput = ({
   searchQuery: string;
   onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   suggestions: any;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  search: (e: React.MouseEvent<HTMLButtonElement>) => void;
   isSuggestionOpen: boolean;
   setIsSuggestionOpen: React.Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -39,16 +39,19 @@ export const SearchInput = ({
         suggestions !== {} &&
         isSuggestionOpen && (
           <div className='absolute mt-4 max-h-[12rem] w-full overflow-y-auto rounded-lg text-black'>
-            {suggestions.data?.map((suggestion, idx) => (
-              <button
-                data-id={suggestion.uid}
-                onClick={onClick}
-                className='w-full bg-white py-3 px-5 text-left hover:bg-subtext'
-                key={idx}>
-                <span className='mr-4 text-lg'>{suggestion.aqi}</span>
-                {suggestion.station.name}
-              </button>
-            ))}
+            {suggestions.data?.map(
+              (suggestion, idx) =>
+                suggestion.aqi !== '-' && (
+                  <button
+                    data-id={suggestion.uid}
+                    onMouseDown={search}
+                    className='w-full bg-white py-3 px-5 text-left hover:bg-subtext focus:bg-subtext'
+                    key={idx}>
+                    <span className='mr-4 text-lg'>{suggestion.aqi}</span>
+                    {suggestion.station.name}
+                  </button>
+                )
+            )}
           </div>
         )}
     </div>

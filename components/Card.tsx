@@ -14,7 +14,7 @@ export const Card = ({
   searchQuery,
   onKeyUp,
   suggestions,
-  onClick,
+  search,
   isSuggestionOpen,
   setIsSuggestionOpen
 }: {
@@ -24,7 +24,7 @@ export const Card = ({
   searchQuery: string;
   onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   suggestions: any;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  search: (e: React.MouseEvent<HTMLButtonElement>) => void;
   isSuggestionOpen: boolean;
   setIsSuggestionOpen: React.Dispatch<SetStateAction<boolean>>;
 }) => {
@@ -37,7 +37,7 @@ export const Card = ({
         searchQuery={searchQuery}
         onKeyUp={onKeyUp}
         suggestions={suggestions}
-        onClick={onClick}
+        search={search}
         isSuggestionOpen={isSuggestionOpen}
         setIsSuggestionOpen={setIsSuggestionOpen}
       />

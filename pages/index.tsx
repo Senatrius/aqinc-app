@@ -50,8 +50,11 @@ export default function Home() {
   };
 
   const search = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const response = await fetch(`api/@${e.target.dataset.id}`);
+    const response = await fetch(
+      `api/@${(e.target as HTMLButtonElement).dataset.id}`
+    );
     const data = await response.json();
+    console.log('test');
 
     setAqiData(data);
   };
@@ -128,7 +131,7 @@ export default function Home() {
             searchQuery={searchQuery}
             onKeyUp={onKeyUp}
             suggestions={suggestions}
-            onClick={search}
+            search={search}
             isSuggestionOpen={isSuggestionOpen}
             setIsSuggestionOpen={setIsSuggestionOpen}
           />
