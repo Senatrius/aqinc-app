@@ -27,6 +27,7 @@ export default function Home() {
   const [condition, setCondition] = useState<string>('good');
   const [aqiData, setAqiData] = useState<IData | null>(null);
   const [suggestions, setSuggestions] = useState<any>({});
+  const [isSuggestionOpen, setIsSuggestionOpen] = useState<boolean>(true);
 
   const interval = useRef<ReturnType<typeof setTimeout>>();
 
@@ -44,6 +45,7 @@ export default function Home() {
   }, [aqiData]);
 
   const onChange = (e: ChangeEvent) => {
+    setIsSuggestionOpen(false);
     setSearchQuery((e.target as HTMLInputElement).value);
   };
 
@@ -60,8 +62,8 @@ export default function Home() {
       const response = await fetch(`api/search/${searchQuery}`);
       const data = await response.json();
 
-      console.log(data);
       setSuggestions(data);
+      setIsSuggestionOpen(true);
     }, 2000);
   };
 
@@ -127,6 +129,8 @@ export default function Home() {
             onKeyUp={onKeyUp}
             suggestions={suggestions}
             onClick={search}
+            isSuggestionOpen={isSuggestionOpen}
+            setIsSuggestionOpen={setIsSuggestionOpen}
           />
         )}
       </main>

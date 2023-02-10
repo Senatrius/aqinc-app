@@ -5,15 +5,18 @@ export const SearchInput = ({
   searchQuery,
   onKeyUp,
   suggestions,
-  onClick
+  onClick,
+  isSuggestionOpen,
+  setIsSuggestionOpen
 }: {
   onChange: (e: React.ChangeEvent) => void;
   searchQuery: string;
   onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   suggestions: any;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  isSuggestionOpen: boolean;
+  setIsSuggestionOpen: React.Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [isSuggestionOpen, setIsSuggestionOpen] = useState<boolean>(true);
   return (
     <div className='relative w-full md:max-w-[30rem]'>
       <label
@@ -22,7 +25,8 @@ export const SearchInput = ({
         Enter your location
       </label>
       <input
-        onClick={() => setIsSuggestionOpen(true)}
+        onFocus={() => setIsSuggestionOpen(true)}
+        onBlur={() => setIsSuggestionOpen(false)}
         placeholder='Enter a location'
         className='w-full border border-transparent border-b-inputBorder bg-input py-3 px-5 leading-none outline-none placeholder:text-inputBorder focus-within:border-inputBorder'
         type='text'
