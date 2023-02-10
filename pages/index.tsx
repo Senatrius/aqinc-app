@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Josefin_Sans } from '@next/font/google';
 import { Card } from '@/components/Card';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { IData } from './api/current';
+import { IData, ISuggestions } from '@/interfaces';
 
 const getCondition = (aqi: number) => {
   if (0 <= aqi && aqi <= 50) {
@@ -26,7 +26,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [condition, setCondition] = useState<string>('good');
   const [aqiData, setAqiData] = useState<IData | null>(null);
-  const [suggestions, setSuggestions] = useState<any>({});
+  const [suggestions, setSuggestions] = useState<ISuggestions | null>(null);
   const [isSuggestionOpen, setIsSuggestionOpen] = useState<boolean>(true);
 
   const interval = useRef<ReturnType<typeof setTimeout>>();

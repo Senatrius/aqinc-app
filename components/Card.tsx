@@ -1,5 +1,5 @@
-import { IData } from '@/pages/api/current';
-import { ReactNode, SetStateAction, useState } from 'react';
+import { IData } from '@/interfaces';
+import { SetStateAction } from 'react';
 import { AQI } from './AQI';
 import { Credit } from './Credit';
 import { Data } from './Data';

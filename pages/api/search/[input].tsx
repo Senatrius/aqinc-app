@@ -1,27 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { ISearch } from '@/interfaces';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-interface ICity {
-  name: string;
-  url: string;
-  geo: number[];
-}
 
-interface IResult {
-  idx: number;
-  aqi: number;
-  time: {
-    v: number;
-    s: string;
-    tz: string;
-  };
-  city: ICity;
-}
-
-interface ISearch {
-  status: string;
-  data: IResult[];
-}
 
 export default async function handler(
   req: NextApiRequest,

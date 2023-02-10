@@ -1,10 +1,5 @@
+import { Iaqi } from '@/interfaces';
 import { DataValue } from './DataValue';
-
-interface Iaqi {
-  [key: string]: {
-    v: number;
-  };
-}
 
 export const Data = ({ data }: { data: Iaqi }) => {
   return (

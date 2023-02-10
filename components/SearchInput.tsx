@@ -1,4 +1,5 @@
-import React, { SetStateAction, useState } from 'react';
+import { ISuggestion } from '@/interfaces';
+import React, { SetStateAction } from 'react';
 
 export const SearchInput = ({
   onChange,
@@ -25,6 +26,8 @@ export const SearchInput = ({
         Enter your location
       </label>
       <input
+        autoComplete='off'
+        autoCorrect='off'
         onFocus={() => setIsSuggestionOpen(true)}
         onBlur={() => setIsSuggestionOpen(false)}
         placeholder='Enter a location'
@@ -35,12 +38,13 @@ export const SearchInput = ({
         onKeyUp={onKeyUp}
         value={searchQuery}
       />
-      {suggestions.status === 'ok' &&
+      {suggestions &&
+        suggestions.status === 'ok' &&
         suggestions !== {} &&
         isSuggestionOpen && (
           <div className='absolute mt-4 max-h-[12rem] w-full overflow-y-auto rounded-lg text-black'>
             {suggestions.data?.map(
-              (suggestion, idx) =>
+              (suggestion: ISuggestion, idx: number) =>
                 suggestion.aqi !== '-' && (
                   <button
                     data-id={suggestion.uid}
