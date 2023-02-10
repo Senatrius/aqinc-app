@@ -13,7 +13,7 @@ export const Date = ({ timestamp }: { timestamp: string }) => {
   const period = time.slice(-2);
   return (
     <div className='sm:text-right'>
-      <p className='text-[1.75rem] leading-none'>
+      <p className='text-[1.75rem] font-medium leading-none'>
         {hour}:00
         <span className='text-xl'>{period}</span>
       </p>

@@ -4,6 +4,13 @@ import { Card } from '@/components/Card';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { IData, ISuggestions } from '@/interfaces';
 
+const josefinSans = Josefin_Sans({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  variable: '--josefin',
+  display: 'fallback'
+});
+
 const getCondition = (aqi: number) => {
   if (0 <= aqi && aqi <= 50) {
     return 'good';
@@ -122,7 +129,7 @@ export default function Home() {
         style={{
           background: `url(${background}) no-repeat center/cover`
         }}
-        className='relative grid w-full place-items-center text-text'>
+        className={`${josefinSans.variable} relative grid w-full place-items-center font-josefin text-text`}>
         {aqiData && (
           <Card
             aqiDescription={aqiDescription}

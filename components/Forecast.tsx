@@ -10,14 +10,16 @@ export const Forecast = ({ forecast }: { forecast: IForecast }) => {
   return (
     <section className='bg-gradient-to-b from-forecastStart to-forecastEnd p-6 md:py-8 md:px-10'>
       <div className='mb-4 flex flex-col items-start sm:flex-row sm:items-center sm:justify-between'>
-        <h2 className='text-2xl'>{forecastType.toUpperCase()} Forecast</h2>
+        <h2 className='text-2xl font-medium'>
+          {forecastType.toUpperCase()} Forecast
+        </h2>
         <div className='flex gap-1.5'>
           {forecasts.map((forecast, idx) => (
             <button
               onClick={e =>
                 setForecastType(e.currentTarget.innerText.toLowerCase())
               }
-              className='rounded-full bg-subtext py-1 px-3 uppercase text-black hover:bg-white focus:bg-white'
+              className='rounded-full bg-subtext px-4 pt-1.5 pb-1 uppercase text-black hover:bg-white focus:bg-white'
               key={idx}>
               {forecast}
             </button>

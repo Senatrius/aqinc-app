@@ -10,6 +10,9 @@ module.exports = {
     extend: {
       screens: {
         xs: '450px'
+      },
+      fontFamily: {
+        josefin: ['var(--josefin)']
       }
     }
   },

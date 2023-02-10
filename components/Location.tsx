@@ -16,7 +16,7 @@ export const Location = ({ location }: { location: string }) => {
         />
       </svg>
       <div>
-        <p className='text-[1.75rem] leading-none'>{country}</p>
+        <p className='text-[1.75rem] font-medium leading-none'>{country}</p>
         <p className='text-xl leading-snug text-subtext'>{city}</p>
       </div>
     </div>

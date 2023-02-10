@@ -51,7 +51,9 @@ export const SearchInput = ({
                     onMouseDown={search}
                     className='w-full bg-white py-3 px-5 text-left hover:bg-subtext focus:bg-subtext'
                     key={idx}>
-                    <span className='mr-4 text-lg'>{suggestion.aqi}</span>
+                    <span className='mr-4 text-lg font-medium'>
+                      {suggestion.aqi}
+                    </span>
                     {suggestion.station.name}
                   </button>
                 )

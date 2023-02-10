@@ -7,7 +7,7 @@ export const DataValue = ({
 }) => {
   return (
     <div>
-      <p className='text-2xl leading-none'>{value || 'N/A'}</p>
+      <p className='text-2xl font-medium leading-none'>{value || 'N/A'}</p>
       <p className='text-lg uppercase tracking-wider text-subtext'>{label}</p>
     </div>
   );
